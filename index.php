@@ -1,5 +1,3 @@
-
-ดัชนี· PHP
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -26,11 +24,11 @@ if ($pdo) {
 <body class="bg-light">
 <div class="container mt-4" style="max-width:900px">
   <h1 class="mb-3"><span class="badge bg-success">Nginx</span> Web Server</h1>
- 
+
   <div class="alert alert-success">
     <strong>Database Status:</strong> <?= htmlspecialchars($status) ?>
   </div>
- 
+
   <div class="card mb-4">
     <div class="card-header">เพิ่มข้อมูลผู้ใช้</div>
     <div class="card-body">
@@ -51,7 +49,7 @@ if ($pdo) {
       </form>
     </div>
   </div>
- 
+
   <div class="card mb-4">
     <div class="card-header">ข้อมูลผู้ใช้</div>
     <div class="card-body">
@@ -75,4 +73,3 @@ if ($pdo) {
 </div>
 </body>
 </html>
- 
