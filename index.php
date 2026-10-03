@@ -1,3 +1,5 @@
+
+ดัชนี· PHP
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -15,23 +17,62 @@ if ($pdo) {
 ?>
 <!DOCTYPE html>
 <html lang="th">
-<head><meta charset="UTF-8"><title>Nginx Web Server</title></head>
-<body style="font-family:Arial;max-width:900px;margin:40px auto">
-<h1>Nginx Web Server</h1>
-<p>Server: <b>Nginx</b></p>
-<p>Database Status: <b><?= htmlspecialchars($status) ?></b></p>
-<form method="post">
-  <p>ชื่อ<br><input name="name" required style="width:100%"></p>
-  <p>Email<br><input name="email" type="email" required style="width:100%"></p>
-  <p>เบอร์โทร<br><input name="phone" required style="width:100%"></p>
-  <button type="submit">บันทึกข้อมูล</button>
-</form>
-<h2>ข้อมูลผู้ใช้</h2>
-<table border="1" cellpadding="8" cellspacing="0" width="100%">
-<tr><th>ID</th><th>ชื่อ</th><th>Email</th><th>เบอร์โทร</th></tr>
-<?php foreach ($rows as $r): ?>
-<tr><td><?= $r['id'] ?></td><td><?= htmlspecialchars($r['name']) ?></td>
-<td><?= htmlspecialchars($r['email']) ?></td><td><?= htmlspecialchars($r['phone']) ?></td></tr>
-<?php endforeach; ?>
-</table>
-</body></html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nginx Web Server</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-4" style="max-width:900px">
+  <h1 class="mb-3"><span class="badge bg-success">Nginx</span> Web Server</h1>
+ 
+  <div class="alert alert-success">
+    <strong>Database Status:</strong> <?= htmlspecialchars($status) ?>
+  </div>
+ 
+  <div class="card mb-4">
+    <div class="card-header">เพิ่มข้อมูลผู้ใช้</div>
+    <div class="card-body">
+      <form method="post">
+        <div class="mb-3">
+          <label class="form-label">ชื่อ</label>
+          <input name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input name="email" type="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">เบอร์โทร</label>
+          <input name="phone" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success">บันทึกข้อมูล</button>
+      </form>
+    </div>
+  </div>
+ 
+  <div class="card mb-4">
+    <div class="card-header">ข้อมูลผู้ใช้</div>
+    <div class="card-body">
+      <table class="table table-bordered table-striped mb-0">
+        <thead>
+          <tr><th>ID</th><th>ชื่อ</th><th>Email</th><th>เบอร์โทร</th></tr>
+        </thead>
+        <tbody>
+        <?php foreach ($rows as $r): ?>
+          <tr>
+            <td><?= $r['id'] ?></td>
+            <td><?= htmlspecialchars($r['name']) ?></td>
+            <td><?= htmlspecialchars($r['email']) ?></td>
+            <td><?= htmlspecialchars($r['phone']) ?></td>
+          </tr>
+        <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+ 
